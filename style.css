@@ -1,0 +1,24 @@
+/* Dark mode styles */
+body.dark {
+  background-color: #121212;
+  color: #f0f0f0;
+}
+
+nav.dark {
+  background-color: rgba(18, 18, 18, 0.9);
+}
+
+section.dark, .group.dark, .border.dark {
+  background-color: #1e1e1e;
+  border-color: #444;
+}
+
+.hover\:bg-lightHover.dark:hover {
+  background-color: #333 !important;
+}
+
+button.dark, .rounded-full.dark {
+  background-color: #333;
+  color: #fff;
+  border-color: #555;
+}
