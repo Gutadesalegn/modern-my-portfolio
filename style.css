@@ -1,4 +1,16 @@
 /* Dark mode styles */
+@keyframes spin_slow {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.animate-spin_slow {
+  animation: spin_slow 20s linear infinite;
+}
 body.dark {
   background-color: #121212;
   color: #f0f0f0;
