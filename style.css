@@ -34,3 +34,33 @@ button.dark, .rounded-full.dark {
   color: #fff;
   border-color: #555;
 }
+/* Input styling reused across form */
+.input-style {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  outline: none;
+  background: white;
+}
+
+/* Dark mode support */
+.dark .input-style {
+  background: #1f2937;
+  color: white;
+  border-color: #374151;
+}
+
+/* Toast types */
+.toast-success {
+  background-color: #16a34a;
+}
+
+.toast-error {
+  background-color: #dc2626;
+}
+
+/* Smooth transition */
+* {
+  transition: all 0.2s ease-in-out;
+}
