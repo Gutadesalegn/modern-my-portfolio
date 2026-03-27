@@ -160,46 +160,48 @@
       Show more <img src="./images/right-arrow-bold.png" alt="" class="w-4">
     </a>
   </div>
-<!------------contact----------------->
+<section id="contact" class="w-full px-[12%] py-10 scroll-mt-20">
+  
+  <form id="contact-form" class="max-w-xl mx-auto">
 
-  <section id="contact" class="w-full px-[12%] py-10 scroll-mt-20 bg-[url('./images/footer-bg-color.png')] bg-no-repeat bg-[length:90%_auto] bg-center">
-
-  <h4 class="text-center mb-2 text-lg font-Ovo">Connect with me</h4>
-  <h2 class="text-center text-5xl font-Ovo">Get in touch</h2>
-
-  <p class="text-center max-w-2xl mx-auto mt-5 mb-12 font-Ovo">
-    I'd love to hear from you! If you have any questions, suggestions, or 
-    just want to say hello, please use the contact form below.
-  </p>
-
-  <form id="contact-form"
-class="max-w-2xl mx-auto bg-white/90 dark:bg-gray-900/80 backdrop-blur-sm rounded-xl shadow-lg p-8">
-
-  <!-- ✅ REQUIRED FOR EMAIL SENDING -->
-  <input type="hidden" name="access_key" value="75b8fbf0-4b95-4586-84ea-511c1a3d11c7">
-
-  <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 mb-6">
-    <input type="text" name="name" placeholder="Your name" required class="input-style">
-    <input type="email" name="email" placeholder="Your email" required class="input-style">
-  </div>
-
-  <textarea name="message" rows="6" placeholder="Your message" required class="input-style mb-6"></textarea>
-
-  <div class="text-center">
-    <button id="submit-btn" type="submit"
-      class="px-8 py-3 bg-black text-white rounded-full flex items-center gap-2 mx-auto">
-
+    <div class="text-center mb-6">
       <span id="btn-text">Submit now</span>
-      <span id="spinner" class="hidden w-4 h-4 border-2 border-white border-t-transparent rounded-full animate-spin"></span>
+      <span id="spinner" class="hidden w-4 h-4 border-2 border-black border-t-transparent rounded-full animate-spin"></span>
+    </div>
 
+    <input 
+      type="text" 
+      name="name" 
+      placeholder="Your name" 
+      required 
+      class="w-full mb-4 p-3 border rounded"
+    />
+
+    <input 
+      type="email" 
+      name="email" 
+      placeholder="Your email" 
+      required 
+      class="w-full mb-4 p-3 border rounded"
+    />
+
+    <textarea 
+      name="message" 
+      rows="5" 
+      placeholder="Your message" 
+      required 
+      class="w-full mb-4 p-3 border rounded"
+    ></textarea>
+
+    <button type="submit" class="bg-black text-white px-6 py-3 rounded">
+      Send Message
     </button>
-  </div>
-</form>
 
-<!-- Toast -->
-<div id="toast"
-  class="fixed bottom-5 right-5 px-6 py-3 rounded-lg text-white hidden">
-</div>
+  </form>
+
+  <!-- Toast -->
+  <div id="toast" class="fixed bottom-5 right-5 px-4 py-2 rounded hidden text-white"></div>
+
 </section>
   <!-- Footer -->
   <footer class="mt-20 font-Ovo">
