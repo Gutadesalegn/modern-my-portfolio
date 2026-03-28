@@ -38,6 +38,15 @@
       <button class="md:hidden" onclick="openMenu()">
         <img src="./images/menu-black.png" alt="" class="w-8">
       </button>
+      <div id="sideMenu" class="fixed top-0 right-[-16rem] w-64 h-full bg-white shadow-lg transition-all duration-300 md:hidden">
+  <ul class="flex flex-col p-6 gap-4">
+    <li><a href="#top" onclick="closeMenu()">Home</a></li>
+    <li><a href="#about" onclick="closeMenu()">About</a></li>
+    <li><a href="#services" onclick="closeMenu()">Services</a></li>
+    <li><a href="#work" onclick="closeMenu()">Work</a></li>
+    <li><a href="#contact" onclick="closeMenu()">Contact</a></li>
+  </ul>
+</div>
     </div>
   </nav>
 
