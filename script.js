@@ -14,15 +14,21 @@ darkToggle.addEventListener("click", () => {
 });
 
 
+// ===== MOBILE MENU =====
+const sideMenu = document.getElementById("sideMenu");
 
-// ===== MOBILE MENU (placeholder if you expand later) =====
 function openMenu() {
-  alert("Mobile menu can be implemented here");
+  sideMenu.style.right = "0";
 }
+function closeMenu() {
+  sideMenu.style.right = "-16rem";
+}
+
 window.openMenu = openMenu;
+window.closeMenu = closeMenu;
 
 
-// ===== CONTACT FORM (React-like state handling) =====
+// ===== CONTACT FORM =====
 const form = document.getElementById("contact-form");
 const submitBtn = document.getElementById("submit-btn");
 const btnText = document.getElementById("btn-text");
@@ -31,54 +37,36 @@ const toast = document.getElementById("toast");
 
 let loading = false;
 
-form.addEventListener("submit", async (e) => {
+form.addEventListener("submit", function (e) {
   e.preventDefault();
 
   if (loading) return;
 
-  // set loading state
   loading = true;
   btnText.textContent = "Sending...";
   spinner.classList.remove("hidden");
   submitBtn.disabled = true;
 
-  const formData = new FormData(form);
-
-  const data = {
-    name: formData.get("name"),
-    email: formData.get("email"),
-    message: formData.get("message"),
-  };
-
-  const form = document.getElementById("contact-form");
-
-form.addEventListener("submit", function (e) {
-  e.preventDefault();
-
   emailjs.sendForm(
-    "service_nhukh6g",     // your service ID
-    "template_wpc5z9s",    // your template ID
+    "service_nhukh6g",
+    "template_wpc5z9s",
     this
   )
   .then(() => {
-    alert("Message sent successfully!");
+    showToast("Message sent successfully!", "success");
     form.reset();
   })
   .catch((error) => {
-    alert("Failed to send message!");
-    console.log(error);
+    console.error("EmailJS Error:", error);
+    showToast("Failed to send message!", "error");
+  })
+  .finally(() => {
+    loading = false;
+    btnText.textContent = "Submit now";
+    spinner.classList.add("hidden");
+    submitBtn.disabled = false;
   });
 });
-});
-const sideMenu = document.getElementById("sideMenu");
-
-function openMenu() {
-  sideMenu.style.right = "0";
-}
-
-function closeMenu() {
-  sideMenu.style.right = "-16rem";
-}
 
 
 // ===== TOAST NOTIFICATION =====
@@ -92,7 +80,6 @@ function showToast(message, type) {
     toast.classList.add("toast-error");
   }
 
-  // show toast
   setTimeout(() => {
     toast.classList.add("hidden");
   }, 3000);
