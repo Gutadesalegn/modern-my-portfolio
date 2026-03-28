@@ -50,25 +50,25 @@ form.addEventListener("submit", async (e) => {
     message: formData.get("message"),
   };
 
-  try {
-    // simulate API request
-    await new Promise((resolve) => setTimeout(resolve, 1500));
+  const form = document.getElementById("contact-form");
 
-    console.log("Form submitted:", data);
+form.addEventListener("submit", function (e) {
+  e.preventDefault();
 
-    // success UI
-    showToast("Message sent successfully!", "success");
-
+  emailjs.sendForm(
+    "service_nhukh6g",     // your service ID
+    "template_wpc5z9s",    // your template ID
+    this
+  )
+  .then(() => {
+    alert("Message sent successfully!");
     form.reset();
-  } catch (error) {
-    showToast("Something went wrong!", "error");
-  } finally {
-    // reset loading state
-    loading = false;
-    btnText.textContent = "Submit now";
-    spinner.classList.add("hidden");
-    submitBtn.disabled = false;
-  }
+  })
+  .catch((error) => {
+    alert("Failed to send message!");
+    console.log(error);
+  });
+});
 });
 const sideMenu = document.getElementById("sideMenu");
 
